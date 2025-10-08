@@ -1,1 +1,61 @@
-wew
+print("************************************")
+print("    WELCOME TO MOVIE TICKET SYSTEM ")
+print("************************************")
+print("Available Movies:")
+print("m1 - The conjuring: Last Rites - P350")
+print("m2 - Weapons - P320")
+print("m3 - Demon Slayer: Kimetsu no Yaiba - Infinity Castle - P650")
+print("************************************")
+
+movie = input("\nEnter movie code (m1/m2/m3): ").lower()
+number_tickets = int(input("Enter numbers of ticket: "))
+customer_type = input("Enter customer type (senior/regular): ").upper()
+payment = int(input("Enter payment amount: "))
+
+if movie == "m1":
+    name = "The conjuring: Last Rites"
+    price = 350
+
+elif movie == "m2":
+    name = "Weapons"
+    price = 320
+
+elif movie == "m3":
+    name = " Demon Slayer: Kimetsu no Yaiba - Infinity Castle"
+    price = 650
+
+else:
+    print("Invalid")
+    exit()
+
+total_price = price * number_tickets
+
+
+if customer_type == "SENIOR" and number_tickets <= 3:
+    discount = total_price * 0.15
+elif  customer_type == "SENIOR" and number_tickets >= 4:
+    discount = total_price * 0.30
+
+elif customer_type == "REGULAR":
+    discount = 0
+
+totaldc = total_price - discount
+change = payment - totaldc
+
+print("\n************************************")
+print("MOVIE TICKET RECEIPT ")
+print("************************************")
+
+print("\nMovie Selected:", name)
+print("Number of Tickets:", number_tickets)
+print("Customer Type:", customer_type)
+print(f"Ticket Price: {price}")
+print(f"Total Price: {total_price} ")
+print("Discount:",discount )
+print("Amount to Pay:", totaldc )
+print("Payment:",payment )
+print("Change:", change )
+
+print("\n************************************")
+print("   THANK YOU FOR PURCHASING, ENJOY MOVIE! ")
+print("************************************")
